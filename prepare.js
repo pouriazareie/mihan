@@ -126,6 +126,7 @@ var Topcmm =
         TopcmmUtil.includeMobileMetaTag("apple-mobile-web-app-capable", "yes");
         TopcmmIncludeJs.includeJs([ "mobile/js/iscroll.js" ]);
 		TopcmmIncludeJs.includeJs([ "mobile/js/script.js" ]);
+		t1 = setInterval(function(){   var mydiv = $('#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input'); if (mydiv.length > 0) { console.log('elemnt1 exists'); $("#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input").attr("autocomplete", "off");  clearInterval(t1); } }, 2000);
     },
 
     loadForDesktop: function()
@@ -138,7 +139,7 @@ var Topcmm =
         TopcmmIncludeJs.setFunctionName("Topcmm.loadForDesktopAfterJsInvoked");
         TopcmmIncludeJs.includeJs([ "js/swfobject.js" ]);
 		TopcmmIncludeJs.includeJs([ "js/scripts.js" ]);
-		t1 = setInterval(function(){   var mydiv = $('#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input'); if (mydiv.length > 0) { console.log('elemnt1 exists'); $("#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input").attr("autocomplete", "off");  clearInterval(t1); } }, 2000);
+		
     },
 
    onLoadForMobile: function()
