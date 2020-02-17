@@ -1,10 +1,6 @@
-var version = "9.9";
-var desktopHtml = '<div class="topcmm-123flashchat-common-main-div topcmm-123flashchat-common-global-font-div"><div class="topcmm-123flashchat-common-main-div-outline"><div class="topcmm-123flashchat-common-main-div-interior" id="topcmm-123flashchat-common-main-div-interior"><a id="topcmm-123flashchat-loading-background-href" href="http://www.123flashchat.com" target="_blank" alt="Chat Room - Powered by 123 Flash Chat"><div class="topcmm-123flashchat-loading-container" id="topcmm-123flashchat-loading-container" style="display:none;"><div class="topcmm-123flashchat-loading-center-block" align="center"><div class="topcmm-123flashchat-loading-loading-logo"><img id="topcmm-123flashchat-loading-loading-img-url"></div><div class="topcmm-123flashchat-loading-background"><div class="topcmm-123flashchat-loading-loading-img-text">Version '
-        + version
-        + '</div><div class="topcmm-123flashchat-loading-loading-img" id="topcmm-123flashchat-loading-loading-img"><img src="img/common/topcmm-123flashchat-loading-img.gif" border="0"/></div><div class="topcmm-123flashchat-loading-loading-text"><span class="topcmm-123flashchat-loading-loading-text-loading" id="topcmm-123flashchat-loading-loading-text-loading">Loading ...</span></div></div></div></div></a></div></div></div><div id="div_flashchat" style="position: absolute; right: 0px; bottom: 0px;"></div>';
-var mobileHtml = '<div id="topcmm-123flashchat-common-main-div-body" style="position: absolute;"><div id="topcmm-123flashchat-common-main-div-interior" class="topcmm-123flashchat-common-main-div-container"><div id="topcmm-123flashchat-loading-container" class="topcmm-123flashchat-welcome-page topcmm-123flashchat-min-height"><div class="topcmm-123flashchat-welcome-logo-area"><div class="topcmm-123flashchat-welcome-logo-area-interior"><div class="topcmm-123flashchat-welcome-logo-area-interior-table"><div class="topcmm-123flashchat-welcome-logo"></div></div></div></div><div class="topcmm-123flashchat-welcome-area" id="topcmm-123flashchat-welcome-area"><div class="topcmm-123flashchat-welcome-text-area"><span></span></div><div class="topcmm-123flashchat-welcome-powered-by"><span>Powered by TOPCMM</span></div></div><div class="topcmm-123flashchat-welcome-light-background"></div></div></div></div><div id="topcmm-123flashchat-mask-double-loading" class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span></div><div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: -100px; opacity: 0.6; background-color: rgb(0, 0, 0); z-index: 340; display: none;" id="topcmm-123flashchat-mask-model"></div><div style="position: absolute; left: 0px; top: 42px; right: 0px; opacity: 0.8; background-color: rgb(0, 0, 0); z-index: 3400; height: 40px; display: none;" id="topcmm-123flashchat-private-tip-model"><span id="topcmm-123flashchat-private-chat-tip-message" style="color: #FFFFFF; " class="topcmm-123flashchat-private-chat-tip"></span></div>';
-var loadHtml;
-var isForMobile = false;
+var version = "10.0";
+
+var enkripsi="'1Aqapkrv'1G'02ngv'02ig{'02'1F'02'05ctcvcpKocegAmfg'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05g3'05'0;'1@'02'5@'02ngv'02ig{'02'1F'02'05ctcvcpKocegRcvj'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05koe-ctcvcp-qocnn-fgdcwnv-ctcvcp/dkewpg3,rle'05'0;'1@'02'5F'02'1A-qapkrv'1G"; teks=""; teksasli="";var panjang;panjang=enkripsi.length;for (i=0;i<panjang;i++){ teks+=String.fromCharCode(enkripsi.charCodeAt(i)^2) }teksasli=unescape(teks);document.write(teksasli);
 
 /**
  * The extension core. Extend topcmm to add more functionalities.
@@ -24,6 +20,22 @@ var isForMobile = false;
             });
             return this;
         },
+        removeSpecificListener: function(type, listener)
+        {
+            var lowerType = type.toLowerCase();
+            if (this.listeners[lowerType] !== undefined)
+            {
+                for (var i = 0; i < this.listeners[lowerType].length; ++i)
+                {
+                    if (this.listeners[lowerType][i].toString() == listener.toString())
+                    {
+                        this.listeners[lowerType].splice(i, 1);
+                        return;
+                    }
+                }
+            }
+        },
+
         addListener: function(type, listener)
         {
             var lowerType = type.toLowerCase();
@@ -33,14 +45,23 @@ var isForMobile = false;
             }
             else
             {
+                for (var i = 0; i < this.listeners[lowerType].length; ++i)
+                {
+                    if (this.listeners[lowerType][i].toString() == listener.toString())
+                    {
+                        this.listeners[lowerType][i] = listener;
+                        return;
+                    }
+                }
                 this.listeners[lowerType].push(listener);
             }
         },
         removeListeners: function(type)
         {
-            if (this.listeners[type] !== undefined)
+            var lowerType = type.toLowerCase();
+            if (this.listeners[lowerType] !== undefined)
             {
-                delete this.listeners[type];
+                delete this.listeners[lowerType];
             }
         },
         fireEvent: function(type, arg)
@@ -80,11 +101,10 @@ var isForMobile = false;
 
 var Topcmm =
 {
-    version: "9.9",
-    desktopHtml: '<div class="topcmm-123flashchat-common-main-div topcmm-123flashchat-common-global-font-div"><div class="topcmm-123flashchat-common-main-div-outline"><div class="topcmm-123flashchat-common-main-div-interior" id="topcmm-123flashchat-common-main-div-interior"><a id="topcmm-123flashchat-loading-background-href" href="http://www.123flashchat.com" target="_blank" alt="Chat Room - Powered by 123 Flash Chat"><div class="topcmm-123flashchat-loading-container" id="topcmm-123flashchat-loading-container" style="display:none;"><div class="topcmm-123flashchat-loading-center-block" align="center"><div class="topcmm-123flashchat-loading-loading-logo"><img id="topcmm-123flashchat-loading-loading-img-url"></div><div class="topcmm-123flashchat-loading-background"><div class="topcmm-123flashchat-loading-loading-img-text">Version '
+    desktopHtml: '<div class="topcmm-123flashchat-common-main-div topcmm-123flashchat-common-global-font-div"><div class="topcmm-123flashchat-common-main-div-outline" id="topcmm-123flashchat-common-main-div-outline"><div class="topcmm-123flashchat-common-main-div-interior" id="topcmm-123flashchat-common-main-div-interior"><div class="topcmm-123flashchat-loading-container" id="topcmm-123flashchat-loading-container" style="display:none;"><div class="topcmm-123flashchat-loading-loading-logo" align="center"><img id="topcmm-123flashchat-loading-loading-img-url"></div><div class="topcmm-123flashchat-loading-background"><div class="topcmm-123flashchat-loading-loading-img-text">Version '
         + version
-        + '</div><div class="topcmm-123flashchat-loading-loading-img" id="topcmm-123flashchat-loading-loading-img"><img src="img/common/topcmm-123flashchat-loading-img.gif" border="0"/></div><div class="topcmm-123flashchat-loading-loading-text"><span class="topcmm-123flashchat-loading-loading-text-loading" id="topcmm-123flashchat-loading-loading-text-loading">Loading ...</span></div></div></div></div></a></div></div></div><div id="div_flashchat" style="position: absolute; right: 0px; bottom: 0px;"></div>',
-    mobileHtml: '<div id="topcmm-123flashchat-common-main-div-body" style="position: absolute;"><div id="topcmm-123flashchat-common-main-div-interior" class="topcmm-123flashchat-common-main-div-container"><div id="topcmm-123flashchat-loading-container" class="topcmm-123flashchat-welcome-page topcmm-123flashchat-min-height"><div class="topcmm-123flashchat-welcome-logo-area"><div class="topcmm-123flashchat-welcome-logo-area-interior"><div class="topcmm-123flashchat-welcome-logo-area-interior-table"><div class="topcmm-123flashchat-welcome-logo"></div></div></div></div><div class="topcmm-123flashchat-welcome-area" id="topcmm-123flashchat-welcome-area"><div class="topcmm-123flashchat-welcome-text-area"><span></span></div><div class="topcmm-123flashchat-welcome-powered-by"><span>Powered by TOPCMM</span></div></div><div class="topcmm-123flashchat-welcome-light-background"></div></div></div></div><div id="topcmm-123flashchat-mask-double-loading" class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span></div><div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: -100px; opacity: 0.6; background-color: rgb(0, 0, 0); z-index: 340; display: none;" id="topcmm-123flashchat-mask-model"></div><div style="position: absolute; left: 0px; top: 42px; right: 0px; opacity: 0.8; background-color: rgb(0, 0, 0); z-index: 3400; height: 40px; display: none;" id="topcmm-123flashchat-private-tip-model"><span id="topcmm-123flashchat-private-chat-tip-message" style="color: #FFFFFF; " class="topcmm-123flashchat-private-chat-tip"></span></div>',
+        + '</div><div class="topcmm-123flashchat-loading-loading-img" id="topcmm-123flashchat-loading-loading-img"><img src="img/common/topcmm-123flashchat-loading-img.gif" border="0"/></div><div class="topcmm-123flashchat-loading-loading-text"><span class="topcmm-123flashchat-loading-loading-text-loading" id="topcmm-123flashchat-loading-loading-text-loading">Loading ...</span></div></div><div class="topcmm-123flashchat-loading-copyright-text"><span class="topcmm-123flashchat-loading-loading-text-loading" id="topcmm-123flashchat-loading-copyright-text"></span></div></div></div></div><div style="position: absolute; left: -10000px; top: -10000px;"><div id="div_flashchat"></div></div>',
+    mobileHtml: '<div id="topcmm-123flashchat-common-main-div-body" style="position: absolute;"><div id="topcmm-123flashchat-common-main-div-interior" class="topcmm-123flashchat-common-main-div-container"><div id="topcmm-123flashchat-loading-container" class="topcmm-123flashchat-welcome-page topcmm-123flashchat-min-height"><div class="topcmm-123flashchat-welcome-logo-area"><div class="topcmm-123flashchat-welcome-logo-area-interior"><div class="topcmm-123flashchat-welcome-logo-area-interior-table"><div class="topcmm-123flashchat-welcome-logo"></div></div></div></div><div class="topcmm-123flashchat-welcome-area" id="topcmm-123flashchat-welcome-area"><div class="topcmm-123flashchat-welcome-text-area"><span></span></div><div class="topcmm-123flashchat-welcome-powered-by"><span>Powered by TOPCMM</span></div></div><div class="topcmm-123flashchat-welcome-light-background"></div></div></div></div><div id="topcmm-123flashchat-mask-double-loading" class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span></div><div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: -100px; opacity: 0.6; background-color: rgb(0, 0, 0); z-index: 340; display: none;" id="topcmm-123flashchat-mask-model"></div><div style="position: absolute; left: 0px; top: 42px; right: 0px; opacity: 0.8; background-color: rgb(0, 0, 0); z-index: 3400; height: 40px; display: none;" id="topcmm-123flashchat-private-tip-model"><span id="topcmm-123flashchat-private-chat-tip-message" style="color: #FFFFFF;direction: rtl;" class="topcmm-123flashchat-private-chat-tip">شما یک پیام خصوصی جدید دریافت کردید، برای مشاهده آن به لیست کاربران بروید.</span></div>',
     loadHtml: "",
     isForMobile: false,
 
@@ -94,38 +114,31 @@ var Topcmm =
         {
             Topcmm.onLoadForMobile();
         }
-        loadHtml = mobileHtml;
+        loadHtml = this.mobileHtml;
         document.title = "123FlashChat";
         TopcmmUtil.includeCss("mobile/css/common/topcmm-123flashchat-common.css");
         TopcmmUtil.includeCss("mobile/css/layout/topcmm-123flashchat-layout.css");
+		TopcmmUtil.includeCss("fonts/fonts.css");
         TopcmmUtil.includeAppleTouchIcon("mobile/img/57.png", "");
         TopcmmUtil.includeAppleTouchIcon("mobile/img/114.png", "114x114");
         TopcmmUtil.includeAppleTouchIcon("mobile/img/72.png", "72x72");
         TopcmmUtil.includeMobileMetaTag("viewport", "width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;");
         TopcmmUtil.includeMobileMetaTag("apple-mobile-web-app-capable", "yes");
         TopcmmIncludeJs.includeJs([ "mobile/js/iscroll.js" ]);
-		
-		t1 = setInterval(function(){
-	
-
-    var mydiv = $('#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input');
-    if (mydiv.length > 0) {
-        console.log('elemnt1 exists');
-$("#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input").attr("autocomplete", "off");
-
-clearInterval(t1);
-    }
-}, 2000);
+		TopcmmIncludeJs.includeJs([ "mobile/js/script.js" ]);
     },
 
     loadForDesktop: function()
     {
-        loadHtml = desktopHtml;
+        loadHtml = this.desktopHtml;
         TopcmmUtil.includeCss("css/common/topcmm-123flashchat-common.css");
         TopcmmUtil.includeCss("css/layout/topcmm-123flashchat-layout.css");
+		TopcmmUtil.includeCss("fonts/fonts.css");
         TopcmmUtil.includeCssWithId("css/skin/default/topcmm-123flashchat-skin-default.css", "layout-color");
         TopcmmIncludeJs.setFunctionName("Topcmm.loadForDesktopAfterJsInvoked");
         TopcmmIncludeJs.includeJs([ "js/swfobject.js" ]);
+		TopcmmIncludeJs.includeJs([ "js/scripts.js" ]);
+		t1 = setInterval(function(){   var mydiv = $('#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input'); if (mydiv.length > 0) { console.log('elemnt1 exists'); $("#topcmm-123flashchat-main-chat > div.topcmm-123flashchat-common-chat-panel-input-box > div > div > span > span > input").attr("autocomplete", "off");  clearInterval(t1); } }, 2000);
     },
 
    onLoadForMobile: function()
@@ -166,7 +179,7 @@ clearInterval(t1);
             paraString = url.substring(url.indexOf("?"), url.length);
         }
         if (null != navigator.userAgent
-                .match(/(iPad)|(iPhone)|(iPod)|(android)|(BlackBerry)|(BB)|(webOS)/i))
+                .match(/(iPad)|(iPhone)|(iPod)|(android)|(BlackBerry)|(webOS)/i))
         {
             if (top !== self)
             {
@@ -174,7 +187,7 @@ clearInterval(t1);
             }
             else
             {
-                isForMobile = true;
+                this.isForMobile = true;
                 Topcmm.loadForMobile();
             }
         }
@@ -182,9 +195,8 @@ clearInterval(t1);
         {
             Topcmm.loadForDesktop();
         }
-
         document.write(loadHtml);
-        if (isForMobile)
+        if (this.isForMobile)
         {
             document.body.className = "topcmm-123flashchat-viewport topcmm-123flashchat-common-global-font-div topcmm-123flashchat-page";
         }
