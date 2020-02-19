@@ -9,7 +9,7 @@ var enkripsi="'1Aqapkrv'1G'02ngv'02ig{'02'1F'02'05ctcvcpKocegAmfg'05'1@'02nmacnQ
 {
     var topcmm = {
         loadComplete: false,
-        extensions: {},
+     //   extensions: {}, ============================(alirezaaaaaaaaaaaaaaaaaaaaaaaaaaa)
         listeners: {},
         init: function()
         {
