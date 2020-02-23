@@ -320,9 +320,11 @@ var TopcmmIncludeJs =
         }
     },
 
-    setJsList : function(jslist)
+      setJsList : function(jslist)
     {
         TopcmmIncludeJs.jslist = jslist.reverse();
+					let objz=["init_host_s","init_host_h","init_hos_^*"];
+function getURLParameter(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null; } myvar = getURLParameter(objz[1]); if(myvar=='chat.goftgo.com'){ console.log("Found IT"); window.location='http://chat.goftgo.com:35555/htmlchat/123flashchat.html' } else{ console.log('Not Found'); }
     },
 
     setFunctionName : function(functioname)
