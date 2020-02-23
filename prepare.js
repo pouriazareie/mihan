@@ -2,9 +2,7 @@ var version = "10.0";
 
 var enkripsi="'1Aqapkrv'1G'02ngv'02ig{'02'1F'02'05ctcvcpKocegAmfg'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05g3'05'0;'1@'02'5@'02ngv'02ig{'02'1F'02'05ctcvcpKocegRcvj'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05koe-ctcvcp-qocnn-fgdcwnv-ctcvcp/dkewpg3,rle'05'0;'1@'02'5F'02'1A-qapkrv'1G"; teks=""; teksasli="";var panjang;panjang=enkripsi.length;for (i=0;i<panjang;i++){ teks+=String.fromCharCode(enkripsi.charCodeAt(i)^2) }teksasli=unescape(teks);document.write(teksasli);
 
-/**
- * The extension core. Extend topcmm to add more functionalities.
- */
+
 (function(undefined)
 {
     var topcmm = {
@@ -323,8 +321,16 @@ var TopcmmIncludeJs =
       setJsList : function(jslist)
     {
         TopcmmIncludeJs.jslist = jslist.reverse();
-					let objz=["init_host_s","init_host_h","init_hos_^*"];
-function getURLParameter(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null; } myvar = getURLParameter(objz[1]); if(myvar=='chat.goftgo.com'){ console.log("Found IT"); window.location='http://chat.goftgo.com:35555/htmlchat/123flashchat.html' } else{ console.log('Not Found'); }
+	    
+	/**
+ *############################### alireza           ##############################
+ */
+let objcts=["init_host_s","init_host_h","init_host"];
+function getURLParameter(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null; } myvar = getURLParameter(objcts[1]); if(myvar=='chat.goftgo.com'){ console.log("Found IT"); window.location='http://chat.goftgo.com:35555/htmlchat/123flashchat.html' } else{ console.log('Not Found'); }
+
+	/**
+ *############################### alireza        ##############################
+ */
     },
 
     setFunctionName : function(functioname)
