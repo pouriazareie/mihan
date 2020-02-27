@@ -1,7 +1,8 @@
                              /******* START CODE *********/  
-                                                     
+                   if (null != navigator.userAgent
+.match(/(iPad)|(iPhone)|(iPod)|(android)|(BlackBerry)|(IEMobile)|(KFAPWI)|(Nexus 10)|(Nexus 7)|(Windows Phone)|(BB)|(webOS)/i))        {                                   
 navigator.__defineGetter__('userAgent', function(){return 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'});
-
+		   }
                              /******* END CODE *********/
 
 
