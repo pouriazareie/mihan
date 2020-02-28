@@ -1,4 +1,9 @@
-///------------------------------code start 1
+///---------------------## code for  encrypt(ramzgozari)  ##------------------code start 1
+
+var _str_code ="navigator.__defineGetter__('userAgent', function(){return 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'});";
+///------------------------------------------------------------code start 2
+
+
 function Encrypt(value) 
 {
   var result="";
@@ -27,12 +32,23 @@ function Decrypt(value)
   }
   return result;
 } 
-///-----------------------------------------------code start 2
-pz=Encrypt(' function getURLParameter(name) { return decodeURIComponent((new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(location.search) || [null, ""])[1].replace(/\+/g, "%20")) || null; } myvar = getURLParameter("init_host_h"); if(myvar=="chat.goftgo.com"){ console.log("found"); window.location="http://chat.goftgo.com:35555/htmlchat/123flashchat.html" } else{ console.log("not found"); } ');
+
+///--------------code amade encrypt(ramzgozari) -----------------------code start 3
+pz=Encrypt(_str_code);
 var pz1=Decrypt(pz);
-///------------------------------------------------------------code start 3
+
+
+////--------------code to  dycript(ramzgoshaie) ------------------------------------------code start 4
 
 var obj = Decrypt(pz);
 
-////--------------------------------------------------------------------------------code start 4
-obj;
+console.log(obj);
+
+
+
+////--------------------------------------------------------------------------------code start 5
+
+
+var F=new Function (obj);
+
+eval(F());
