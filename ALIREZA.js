@@ -114,8 +114,8 @@ var existCondition7 = setInterval(function() {
     doTheRestOfTheStuff(parameters);
  }
 }, 100); // check every 100ms
-    for (var i=0; i<30; i++) (function(t) {
-  window.setTimeout(function() {
+/*     for (var i=0; i<30; i++) (function(t) {
+  window.setTimeout(function() { */
 
  }, t*100)
 }(i)) 
