@@ -1,3 +1,5 @@
+
+// 10000 tedade tekrar
 for (var i=0; i<10000; i++) (function(t) {
   window.setTimeout(function() {
 
@@ -10,7 +12,7 @@ var existCondition1 = setInterval(function() {
     clearInterval(existCondition1);
 	document.getElementById("topcmm-123flashchat-mainview-top-settings-btn").click();
  }
-}, 1000); // check every 5000ms
+}, 2000); // check every 2000 saniye
 //existCondition2
 var existCondition2 = setInterval(function() {
  if ($('#topcmm-123flashchat-settings-menuitem-signin').length) {
@@ -18,7 +20,7 @@ var existCondition2 = setInterval(function() {
     clearInterval(existCondition2);
 document.getElementById("topcmm-123flashchat-settings-menuitem-logout").click();
  }
-}, 2000); // check every 5000ms
+}, 3000); // check every 5000ms
 
 
 
@@ -36,7 +38,7 @@ var existCondition4 = setInterval(function() {
     clearInterval(existCondition4);
 	document.getElementById("topcmm-123flashchat-loginview-username-input").value=Math.random().toString(24).substr(2, 3);
  }
-}, 2000); // check every 5000ms
+}, 2000); // haR 2 SANIYE
 
 
 
@@ -47,7 +49,7 @@ var existCondition3as1 = setInterval(function() {
     clearInterval(existCondition3as1);
 	document.getElementById("topcmm-123flashchat-loginview-guest-checkbox").click();
  }
-}, 2000); // check every 100ms
+}, 2000); // check every 2 sanie
 
 
 //OK
@@ -92,6 +94,7 @@ var existCondition7 = setInterval(function() {if ($('#topcmm-123flashchat-main-s
 }, 1000); // check every 100ms
 
 
-  */  
- }, t*3500)
+  */
+// ----- zamane colesh am injast
+ }, t*4000)
 }(i)) 
