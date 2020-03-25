@@ -1,10 +1,10 @@
 
-// 10000 tedade tekrar
+// 10000 tedade dafate tekrar
 for (var i=0; i<10000; i++) (function(t) {
   window.setTimeout(function() {
 
  
-
+// masalan in code vase  feshordane button settinge :)
 //existCondition1
 var existCondition1 = setInterval(function() {
  if ($('#topcmm-123flashchat-mainview-top-settings-btn').length) {
@@ -13,6 +13,13 @@ var existCondition1 = setInterval(function() {
 	document.getElementById("topcmm-123flashchat-mainview-top-settings-btn").click();
  }
 }, 2000); // check every 2000 saniye
+
+
+
+
+
+
+
 //existCondition2
 var existCondition2 = setInterval(function() {
  if ($('#topcmm-123flashchat-settings-menuitem-signin').length) {
@@ -95,6 +102,18 @@ var existCondition7 = setInterval(function() {if ($('#topcmm-123flashchat-main-s
 
 
   */
+
+
+
+
+
+
+
+
+
+
+// inja har code i benivis i ro 10000  bar tekrar mikone va sorate tekrar ham  4000
+
 // ----- zamane colesh am injast
  }, t*4000)
 }(i)) 
