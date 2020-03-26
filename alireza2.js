@@ -78,7 +78,8 @@ var existCondition3 = setInterval(function() {
 
 
 //-------------------(6)-----------------------
-//----alirez-----  کد انتخاب اتاق بعد از لاگین
+//----alirez-----  کد انتخاب اتاق بعد از لاگین  
+// مثلا  div:nth-child(1),div:nth-child(2)
 //existCondition4
 var existCondition4 = setInterval(function() {
 	
